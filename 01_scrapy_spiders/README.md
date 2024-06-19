@@ -50,7 +50,7 @@ Spiders are not just a single file, but a collection of files that work together
 |5|`spiders/`|Contains the spider classes that will scrape the website.|
 
 > [!TIP]
-> We will not be dealing with `middlewares`, `pipelines`, or `items` in this tutorial, but they are important components of a Scrapy project––do not delete them. 
+> We will not be dealing with `middlewares`, `pipelines`, or `items` in this tutorial, but they are important components of a Scrapy project&mdash;do not delete them. 
 
 ## `Spider` class
 
@@ -71,7 +71,18 @@ A class represents a blueprint for an object and is a collection of attributes (
 
 # Getting to business
 
-## Setup
+The procedure for creating a spider is as follows: 
+
+1. Create a new Scrapy project.
+2. Generate a spider with an allowed domain.
+3. Change required settings like `OBEY_ROBOTS_TXT`.
+4. Write the parsing logic in the `parse` method:
+    - Test the selectors in the Scrapy shell (`scrapy shell "https://www.example.com"`)
+    - Write the selectors in the spider.
+5. Run the spider (`scrapy crawl your_spider_name -o output.jsonl`).
+6. Debug, rinse and repeat. 
+
+## Setup 
 
 Let's set up a Scrapy project to scrape the LSE website for information on their degrees.
 
