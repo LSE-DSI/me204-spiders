@@ -118,11 +118,10 @@ Try the following selector:
 ```python
 response.css('.card__content ::text').getall()
 ```
-> <details>
-> [!TIP]
-> <summary>Recall what the space ` ` does in a CSS selector:</summary>
-> it selects all descendants, not just the direct children. 
-> </details>
+
+> [!TIP] Recall what the space ` ` does in a CSS selector:
+> It **selects all descendants**, not just the direct children. 
+
 
 Once you are satisfied with your selectors, copy them to your spider and close the shell by typing `exit()`.
 
