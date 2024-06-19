@@ -118,8 +118,8 @@ Try the following selector:
 ```python
 response.css('.card__content ::text').getall()
 ```
-> [!TIP]
 > <details>
+> [!TIP]
 > <summary>Recall what the space ` ` does in a CSS selector:</summary>
 > it selects all descendants, not just the direct children. 
 > </details>
