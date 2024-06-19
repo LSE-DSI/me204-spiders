@@ -53,9 +53,20 @@ Spiders are not just a single file, but a collection of files that work together
 ## `Spider` class
 
 > [!IMPORTANT]  
-> Spiders are not functions! They have to be instantiated and invoked by the Scrapy framework. So, if with `request` you were able to run a Jupyter Notebook cell, with Scrapy you will instead need to perform a `scrapy crawl` command in the terminal and specify the output file and its format, eg. `scrapy crawl your_spider_name -o output.jsonl`.
+> **Spiders are not functions!** They have to be instantiated and invoked by the Scrapy framework. So, if with `request` you were able to run a Jupyter Notebook cell, with Scrapy you will instead need to perform a `scrapy crawl` command in the terminal and specify the output file and its format, eg. `scrapy crawl your_spider_name -o output.jsonl`.
 
+A class represents a blueprint for an object and is a collection of attributes (\eq properties associated with an object) and methods (\eq functions associated with an object). In Scrapy, a spider is a class that inherits from the `scrapy.Spider` class and has the following attributes:
 
+1. `name`: The name of the spider.
+2. `allowed_domains`: A list of domains that the spider is allowed to scrape.
+3. `start_urls`: A list of URLs that the spider will start scraping from.
+4. `parse`: The method that will be called to handle the response downloaded for each of the requests made.
+    > [!IMPORTANT]  
+    > - There can be multiple parse methods depending on the structure of the website being scraped.
+    > - Each parse method **should `yield` (not `return`) a dictionary** with the data you want to scrape.
+    > - 
+
+# Getting to business
 
 ## Setup
 
@@ -70,7 +81,7 @@ cd lse.ac.uk
 scrapy genspider lse lse.ac.uk
 ```
 
-Now navigate to the `spiders` directory and open the `lse.py` file, where you will see the following code:
+Now navigate to the `spiders` directory (use the `cd` command in the terminal) and open the `lse.py` file, where you will see the following code:
 
 ```python
 import scrapy
@@ -136,7 +147,7 @@ This will run the spider and output the scraped data to the console, but you can
 scrapy crawl lse -o degrees.jsonl
 ```
 
-A lowercase `-o` will append to the existing file, while an uppercase `-O` will overwrite it. 
+A lowercase `-o` will **append** to the existing file, while an uppercase `-O` will **overwrite** it. 
 
 ## Pagination 
 
