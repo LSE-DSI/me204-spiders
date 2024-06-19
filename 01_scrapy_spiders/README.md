@@ -121,7 +121,7 @@ response.css('.card__content ::text').getall()
 > [!TIP]
 > <details>
 > <summary>Recall what the space ` ` does in a CSS selector:</summary>
-it selects all descendants, not just the direct children. 
+> it selects all descendants, not just the direct children. 
 > </details>
 
 Once you are satisfied with your selectors, copy them to your spider and close the shell by typing `exit()`.
