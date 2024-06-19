@@ -65,7 +65,7 @@ A class represents a blueprint for an object and is a collection of attributes (
 > [!IMPORTANT]  
 > There can be multiple parse methods depending on the structure of the website being scraped.
 > Each parse method **should `yield` (not `return`) a dictionary** with the data you want to scrape.
-> Dictionaries are the best data structure for these data, but they can nest lists and other dictionaries.
+> **Dictionaries are the best data structure** for these data, but they can nest lists and other dictionaries.
 
 # Getting to business
 
@@ -118,10 +118,13 @@ Try the following selector:
 ```python
 response.css('.card__content ::text').getall()
 ```
+> [!TIP]
+> <details>
+> <summary>Recall what the space ` ` does in a CSS selector:</summary>
+it selects all descendants, not just the direct children. 
+> </details>
 
-Recall what the space ` ` does in a CSS selector: it selects all descendants, not just the direct children. 
-
-Once you are satisfied with your selectors, you can close the shell by typing `exit()`.
+Once you are satisfied with your selectors, copy them to your spider and close the shell by typing `exit()`.
 
 ## Spider structure
 
@@ -134,7 +137,7 @@ A spider is a class that Scrapy uses to scrape information from a website, and w
 
 You can add other parsing methods such as `parse_item`, `parse_details`, etc. to handle different types of responses.
 
-Each parsing method should yield a dictionary with the data you want to scrape. In our case, let's focus on degree titles, links, and start dates. 
+Each parsing method should yield **either a dictionary** with the data you want to scrape **or another request** if you are dealing with multiple pages. In our case, let's focus on degree titles, links, and start dates. 
 
 Since a spider is a class, you cannot run it directly from the command line. Instead, you need to use the `crawl` command. 
 
@@ -165,7 +168,7 @@ class LseSpider(scrapy.Spider):
 
         if next_page:
             next_page = response.urljoin(next_page)
-            yield scrapy.Request(next_page, callback=self.parse)
+            yield scrapy.Request(next_page, callback=self.parse) # callback means call the parse method with the response from the next page
 ```
 
 The `callback=self.parse` argument tells Scrapy to call the `parse` method with the response from the next page. It does not need brackets `()` because we are passing a reference to the method, not calling it.
