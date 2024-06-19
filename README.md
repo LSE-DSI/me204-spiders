@@ -21,8 +21,8 @@ Do not forget to navigate to the right directory as we move through our lesson.
 
 The repository is structured as follows:
 
-- `01_scrapy_spiders`: Scrapy spiders for scraping the LSE website.
-    - `lse.ac.uk_example`: a sample spider for scraping the LSE website.
+- `01_scrapy_spiders/`: Scrapy spiders for scraping the LSE website.
+    - `lse.ac.uk_example/`: a sample spider for scraping the LSE website.
     - `README.md`: instructions for setting up your own spider.
-- `02_scrapy_hidden_api`: Extra information on hidden APIs and how to find them.
+- `02_scrapy_hidden_api/`: Extra information on hidden APIs and how to find them.
 
