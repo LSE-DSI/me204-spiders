@@ -39,7 +39,7 @@ Let's compare `spiders` and `requests`:
 
 Spiders are not just a single file, but a collection of files that work together to scrape a website. The main components of a spider are:
 
-|#|Component|Funcitonality|
+|#|Component|Functionality|
 |---|---|---|
 |1|`items.py`|Defines the data structure that will be scraped.|
 |2|`middlewares.py`|Processes requests and responses before and after they are sent and received.|
@@ -48,7 +48,7 @@ Spiders are not just a single file, but a collection of files that work together
 |5|`spiders/`|Contains the spider classes that will scrape the website.|
 
 > [!TIP]
-> We will not be dealing with `middlewares`, `pipelines`, or `items` in this tutorial, but they are important components of a Scrapy project---do not delete them. 
+> We will not be dealing with `middlewares`, `pipelines`, or `items` in this tutorial, but they are important components of a Scrapy project––do not delete them. 
 
 ## `Spider` class
 
@@ -60,11 +60,12 @@ A class represents a blueprint for an object and is a collection of attributes (
 1. `name`: The name of the spider.
 2. `allowed_domains`: A list of domains that the spider is allowed to scrape.
 3. `start_urls`: A list of URLs that the spider will start scraping from.
-4. `parse`: The method that will be called to handle the response downloaded for each of the requests made.
-    > [!IMPORTANT]  
-    > - There can be multiple parse methods depending on the structure of the website being scraped.
-    > - Each parse method **should `yield` (not `return`) a dictionary** with the data you want to scrape.
-    > - 
+4. `parse`: The method that will be called to handle the response downloaded for each of the requests made, for example, `parse_page`, `parse_item`, etc. 
+
+> [!IMPORTANT]  
+> There can be multiple parse methods depending on the structure of the website being scraped.
+> Each parse method **should `yield` (not `return`) a dictionary** with the data you want to scrape.
+> Dictionaries are the best data structure for these data, but they can nest lists and other dictionaries.
 
 # Getting to business
 
