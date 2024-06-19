@@ -1,6 +1,6 @@
 # Scrapy Spiders
 
-Scrapy is a powerful web scraping framework that allows you to extract data from websites in an asynchronous (\neq sequential) manner. It provides a lot of the same functionality as we've explored previously in the using the `requests` and `Scrapy Selector` modules, but it is more efficient and can handle more complex tasks. 
+Scrapy is a powerful web scraping framework that allows you to extract data from websites in an asynchronous ($\neq$ sequential) manner. It provides a lot of the same functionality as we've explored previously in the using the `requests` and `Scrapy Selector` modules, but it is more efficient and can handle more complex tasks. 
 
 Let's compare `spiders` and `requests`:
 
@@ -55,7 +55,7 @@ Spiders are not just a single file, but a collection of files that work together
 > [!IMPORTANT]  
 > **Spiders are not functions!** They have to be instantiated and invoked by the Scrapy framework. So, if with `request` you were able to run a Jupyter Notebook cell, with Scrapy you will instead need to perform a `scrapy crawl` command in the terminal and specify the output file and its format, eg. `scrapy crawl your_spider_name -o output.jsonl`.
 
-A class represents a blueprint for an object and is a collection of attributes (\eq properties associated with an object) and methods (\eq functions associated with an object). In Scrapy, a spider is a class that inherits from the `scrapy.Spider` class and has the following attributes:
+A class represents a blueprint for an object and is a collection of attributes ($\eq$ properties associated with an object) and methods ($\eq$ functions associated with an object). In Scrapy, a spider is a class that inherits from the `scrapy.Spider` class and has the following attributes:
 
 1. `name`: The name of the spider.
 2. `allowed_domains`: A list of domains that the spider is allowed to scrape.
