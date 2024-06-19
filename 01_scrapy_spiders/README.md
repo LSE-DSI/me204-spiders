@@ -2,23 +2,59 @@
 
 Scrapy is a powerful web scraping framework that allows you to extract data from websites in an asynchronous (\neq sequential) manner. It provides a lot of the same functionality as we've explored previously in the using the `requests` and `Scrapy Selector` modules, but it is more efficient and can handle more complex tasks. 
 
-Let's compare spiders and requests:
+Let's compare `spiders` and `requests`:
 
 <!-- md table to compare -->
 
 |Characteristic| `requests` \+ `Scrapy Selectors`| `Scrapy` framework |
 |---|---|---|
 |**Asynchronous**| ❌| ✅ |
-|**Pagination**| ❌| ✅|
-|**Middleware**| ❌| ✅|
-|**Pipelines**| ❌| ✅|
-|**Caching**| ❌| ✅|
-|**`robots.txt` settings**| ❌| ✅|
+|**Built-in pagination**| ❌| ✅|
+|**Middleware and pipelines**[^1]| ❌| ✅|
+|**Caching**[^2]| ❌| ✅|
+|**`robots.txt` settings**[^3]| ❌| ✅|
 |**User-Agent settings**| ✅| ✅|
 |**Built-in saving to JSON, CSV, JSONL etc.**| ❌| ✅|
-|**Built-in `shell` for testing selectors**| ❌| ✅|
+|**Built-in `shell` for testing selectors**[^4]| ❌| ✅|
 |**Built-in `crawl` command**| ❌| ✅|
-|**Built-in `scrapyrt` for API**| ❌| ✅|
+|**Boilerplate code generation**[^5]| ❌| ✅|
+|**Intergration with headless browsers**[^6]| ❌| ✅|
+|**Built-in sitemap parsers and link extractors**[^7]| ❌| ✅|
+|**Works well in Jupyter Notebooks**| ✅| ❌|
+|**Built-in `FormRequest` for submitting forms**[^8]| ❌| ✅|
+|**Integration with `scrapyd` for cloud deployment**[^9]| ❌| ✅|
+
+
+[^1]: Middleware and pipelines are used to process requests and responses before and after they are sent and received, respectively.
+[^2]: Caching is the process of storing data in a temporary storage area so that it can be accessed more quickly.
+[^3]: `robots.txt` is a file that tells search engine crawlers which pages or files the crawler can or can't request from your site.
+[^4]: The Scrapy shell is a powerful tool for testing your CSS selectors and XPath expressions in the terminal. 
+[^5]: Scrapy can generate boilerplate code for a new spider, project, or item.
+[^6]: Scrapy can be used with headless browsers like Puppeteer and Playwright to scrape websites that require JavaScript to render.
+[^7]: Scrapy has built-in classes for parsing `sitemap.xml` (eg. [LSE sitemap](https://www.lse.ac.uk/sitemap.xml)) and extracting links.
+[^8]: Scrapy has a `FormRequest` class that can be used to submit forms.
+[^9]: `scrapyd` is a service for running, scheduling, and monitoring Scrapy spiders in the cloud.
+
+# Scapy architecture
+
+Spiders are not just a single file, but a collection of files that work together to scrape a website. The main components of a spider are:
+
+|#|Component|Funcitonality|
+|---|---|---|
+|1|`items.py`|Defines the data structure that will be scraped.|
+|2|`middlewares.py`|Processes requests and responses before and after they are sent and received.|
+|3|`pipelines.py`|Processes the scraped data before it is saved to a file or database.|
+|4|`settings.py`|Contains the configuration settings for the spider.|
+|5|`spiders/`|Contains the spider classes that will scrape the website.|
+
+> [!TIP]
+> We will not be dealing with `middlewares`, `pipelines`, or `items` in this tutorial, but they are important components of a Scrapy project---do not delete them. 
+
+## `Spider` class
+
+> [!IMPORTANT]  
+> Spiders are not functions! They have to be instantiated and invoked by the Scrapy framework. So, if with `request` you were able to run a Jupyter Notebook cell, with Scrapy you will instead need to perform a `scrapy crawl` command in the terminal and specify the output file and its format, eg. `scrapy crawl your_spider_name -o output.jsonl`.
+
 
 
 ## Setup
