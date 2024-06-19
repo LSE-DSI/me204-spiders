@@ -1,3 +1,26 @@
+# Scrapy Spiders
+
+Scrapy is a powerful web scraping framework that allows you to extract data from websites in an asynchronous (\neq sequential) manner. It provides a lot of the same functionality as we've explored previously in the using the `requests` and `Scrapy Selector` modules, but it is more efficient and can handle more complex tasks. 
+
+Let's compare spiders and requests:
+
+<!-- md table to compare -->
+
+|Characteristic| `requests` \+ `Scrapy Selectors`| `Scrapy` framework |
+|---|---|---|
+|**Asynchronous**| ❌| ✅ |
+|**Pagination**| ❌| ✅|
+|**Middleware**| ❌| ✅|
+|**Pipelines**| ❌| ✅|
+|**Caching**| ❌| ✅|
+|**`robots.txt` settings**| ❌| ✅|
+|**User-Agent settings**| ✅| ✅|
+|**Built-in saving to JSON, CSV, JSONL etc.**| ❌| ✅|
+|**Built-in `shell` for testing selectors**| ❌| ✅|
+|**Built-in `crawl` command**| ❌| ✅|
+|**Built-in `scrapyrt` for API**| ❌| ✅|
+
+
 ## Setup
 
 Let's set up a Scrapy project to scrape the LSE website for information on their degrees.
