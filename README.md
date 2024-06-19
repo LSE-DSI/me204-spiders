@@ -1,4 +1,4 @@
-# Scrapy Spiders, Selenium, and hidden APIs
+# Scrapy Spiders and hidden APIs
 
 This repository is for scraping using Scrapy Spiders and some extra information on hidden APIs. 
 
