@@ -119,8 +119,8 @@ Try the following selector:
 response.css('.card__content ::text').getall()
 ```
 
-> [!TIP] Recall what the space ` ` does in a CSS selector:
-> It **selects all descendants**, not just the direct children. 
+> [!TIP] 
+> Recall what the space ` ` does in a CSS selector: it **selects all descendants**, not just the direct children. 
 
 
 Once you are satisfied with your selectors, copy them to your spider and close the shell by typing `exit()`.
